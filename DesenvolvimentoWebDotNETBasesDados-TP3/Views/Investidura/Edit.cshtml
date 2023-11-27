@@ -1,0 +1,44 @@
+﻿@model DesenvolvimentoWebDotNETBasesDados_TP3.Models.Investidura
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Investidura</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="InvestiduraID" />
+            <div class="form-group">
+                <label asp-for="AventureiroID" class="control-label"></label>
+                <select asp-for="AventureiroID" class="form-control" asp-items="ViewBag.AventureiroID"></select>
+                <span asp-validation-for="AventureiroID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EspecialidadeID" class="control-label"></label>
+                <select asp-for="EspecialidadeID" class="form-control" asp-items="ViewBag.EspecialidadeID"></select>
+                <span asp-validation-for="EspecialidadeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataInvestidura" class="control-label"></label>
+                <input asp-for="DataInvestidura" class="form-control" />
+                <span asp-validation-for="DataInvestidura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DesenvolvimentoWebDotNETBasesDados_TP3.Models.Investidura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Aventureiro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInvestidura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aventureiro.AventureiroID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInvestidura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidade.EspecialidadeID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.InvestiduraID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InvestiduraID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InvestiduraID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
